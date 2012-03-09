@@ -28,6 +28,6 @@ func FindById(coll *mgo.Collection, id interface{}) (result bson.M) {
   return
 }
 
-func ensure2dIndex(coll *mgo.Collection, key string) {
+func Ensure2dIndex(coll *mgo.Collection, key string) {
   coll.EnsureIndex(mgo.Index{Key: []string{"@" + key}})
 }
