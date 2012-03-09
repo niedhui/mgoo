@@ -27,3 +27,7 @@ func FindById(coll *mgo.Collection, id interface{}) (result bson.M) {
   coll.Find(bson.M{"_id": queryId}).One(result)
   return
 }
+
+func ensure2dIndex(coll *mgo.Collection, key string) {
+  coll.EnsureIndex(mgo.Index{Key: []string{"@" + key}})
+}
